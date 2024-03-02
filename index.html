@@ -138,4 +138,17 @@ November 2017&ndash;December 2018</p>
 	<li>Secondary education as per syllabus from HSBTE, Bhiwani, Nav Jyoti High School, Bahadurgarh (2012-2013)</li>
 </ul>
 
-<p><a class="download-btn" href="#" onclick="downloadResume()">Download PDF</a></p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script>
+        function downloadResume() {
+            const resume = document.querySelector('.resume');
+            const pdfOptions = {
+                filename: 'Varun_Bhardwaj_Resume.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(pdfOptions).from(resume).save();
+        }
+    </script>
