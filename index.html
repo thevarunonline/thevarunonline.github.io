@@ -93,6 +93,20 @@
     </style>
 </head>
 <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script>
+        function downloadResume() {
+            const resume = document.querySelector('.resume');
+            const pdfOptions = {
+                filename: 'Varun_Bhardwaj_Resume.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(pdfOptions).from(resume).save();
+        }
+    </script>
     <div class="resume">
         <h1>Varun Bhardwaj</h1>
         <p>Middleware Administrator</p>
@@ -237,18 +251,5 @@
         <a href="#" class="download-btn" onclick="downloadResume()">Download PDF</a>
     </div>
 
-    <script>
-        function downloadResume() {
-            const resume = document.querySelector('.resume');
-            const pdfOptions = {
-                filename: 'Varun_Bhardwaj_Resume.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-            };
-
-            html2pdf().set(pdfOptions).from(resume).save();
-        }
-    </script>
 </body>
 </html>
